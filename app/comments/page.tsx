@@ -7,9 +7,9 @@ interface Comment {
     id: string;
     createdTime: string;
     fields: {
-        comment: string;
+        content: string;
         name: string;
-        status: 'published' | 'pending-for-moderation'
+        
     }
 }
 
@@ -45,7 +45,7 @@ function Comments() {
         event.preventDefault();
         const commentContent = commentRef.current?.value || '';
         if (commentContent) {
-          
+           
             fetch('/comments/api', {
                 method: 'POST',
                 body: JSON.stringify({ commentContent: commentContent }),
@@ -67,7 +67,7 @@ function Comments() {
             <div>
                 {comments && comments.map((elem) => {
                     return (
-                        <div key={elem.id}>{elem.fields.comment} ({elem.fields.status}, {formatDate(elem.createdTime)})</div>
+                        <div className="px-5" key={elem.id}>{elem.fields.content}, {elem.fields.name} {formatDate(elem.createdTime)})</div>
                     )
                 })}
             </div>

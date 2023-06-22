@@ -9,7 +9,7 @@ import Movies from "./movies/page";
         home page
       </h1>
       <div>
-        <h2>moie list</h2>
+        <h2 className="font-bold text-cyan-400 px-20 font-sans text-8xl text-center"> Nice seeing you here </h2>
       </div>
     </main>
    );}
